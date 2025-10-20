@@ -107,7 +107,7 @@
         <input type="password" id="password" name="password" placeholder="input password" required>
 
         <div class="register">
-            don't have account? <a href="#">register</a>
+            don't have account? <a href="{{ route('register') }}">register</a>
         </div>
 
         <button type="submit">LOGIN</button>

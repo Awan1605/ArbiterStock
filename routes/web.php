@@ -1,23 +1,34 @@
 <?php
 
-use App\Http\Controllers\Auth\LoginController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Auth\AuthController;
 
-// Route untuk menampilkan form login
-Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
+/*
+|--------------------------------------------------------------------------
+| Routes untuk Otentikasi (Auth)
+|--------------------------------------------------------------------------
+*/
 
-// Route untuk memproses login
-Route::post('/login', [LoginController::class, 'login']);
+// Tampilan Form Login
+Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
 
-// Route untuk logout
-Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+// Proses Login
+Route::post('/login', [AuthController::class, 'login']);
 
-// Route halaman setelah login (contoh)
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware('auth');
+// Tampilan Form Register
+Route::get('/register', [AuthController::class, 'showRegistrationForm'])->name('register'); // ⬅️ TELAH DIPERBAIKI (menjadi showRegistrationForm)
 
-// Route home
-Route::get('/', function () {
-    return view('welcome');
-});
+// Proses Register
+Route::post('/register', [AuthController::class, 'register']);
+
+// Proses Logout
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
+/*
+|--------------------------------------------------------------------------
+| Route Default (Jika ada)
+|--------------------------------------------------------------------------
+*/
+// Route::get('/', function () {
+//     return view('welcome');
+// });
