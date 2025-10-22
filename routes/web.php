@@ -1,34 +1,18 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Auth\AuthController;
 
-/*
-|--------------------------------------------------------------------------
-| Routes untuk Otentikasi (Auth)
-|--------------------------------------------------------------------------
-*/
+// Halaman Register
+Route::get('/register', function () {
+    return view('auth.register');
+})->name('register');
 
-// Tampilan Form Login
-Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
+// Proses form Register (nanti bisa diisi controller)
+Route::post('/register', function () {
+    // proses penyimpanan data register (belum diisi)
+})->name('register.store');
 
-// Proses Login
-Route::post('/login', [AuthController::class, 'login']);
-
-// Tampilan Form Register
-Route::get('/register', [AuthController::class, 'showRegistrationForm'])->name('register'); // ⬅️ TELAH DIPERBAIKI (menjadi showRegistrationForm)
-
-// Proses Register
-Route::post('/register', [AuthController::class, 'register']);
-
-// Proses Logout
-Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
-
-/*
-|--------------------------------------------------------------------------
-| Route Default (Jika ada)
-|--------------------------------------------------------------------------
-*/
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+// Halaman Login (sementara placeholder)
+Route::get('/login', function () {
+    return 'Halaman login (buat nanti)';
+})->name('login');
