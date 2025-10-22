@@ -3,32 +3,52 @@
 use Illuminate\Support\Facades\Route;
 
 // =======================
-// Halaman DASHBOARD (default)
+// Halaman Dashboard (utama)
 // =======================
 Route::get('/', function () {
-    return view('dashboard'); // arahkan ke resources/views/dashboard.blade.php
+    return view('dashboard');
 })->name('dashboard');
 
+// =======================
+// Halaman Modular (opsional, bisa diakses langsung)
+// =======================
+Route::get('/market', function () {
+    return view('market');
+})->name('market');
+
+Route::get('/news', function () {
+    return view('news');
+})->name('news');
+
+Route::get('/about', function () {
+    return view('about');
+})->name('about');
 
 // =======================
-// Halaman REGISTER
+// Halaman AUTH: REGISTER
 // =======================
 Route::get('/register', function () {
-    return view('auth.register');
+    return view('auth.register'); // buat file register.blade.php di resources/views/auth/
 })->name('register');
 
 Route::post('/register', function () {
-    // proses penyimpanan data register (nanti diganti dengan controller)
+    // nanti bisa diisi logika penyimpanan user
 })->name('register.store');
 
-
 // =======================
-// Halaman LOGIN
+// Halaman AUTH: LOGIN
 // =======================
 Route::get('/login', function () {
-    return view('auth.login'); // arahkan ke file resources/views/auth/login.blade.php
+    return view('auth.login'); // buat file login.blade.php di resources/views/auth/
 })->name('login');
 
 Route::post('/login', function () {
-    // proses login (nanti diganti dengan controller)
-})->name('login.process');
+    // nanti bisa diisi logika autentikasi
+})->name('login.store');
+
+// =======================
+// Logout (opsional)
+// =======================
+Route::post('/logout', function () {
+    // nanti bisa diisi logika logout
+})->name('logout');
