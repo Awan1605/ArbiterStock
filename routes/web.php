@@ -3,6 +3,14 @@
 use Illuminate\Support\Facades\Route;
 
 // =======================
+// Halaman DASHBOARD (default)
+// =======================
+Route::get('/', function () {
+    return view('dashboard'); // arahkan ke resources/views/dashboard.blade.php
+})->name('dashboard');
+
+
+// =======================
 // Halaman REGISTER
 // =======================
 Route::get('/register', function () {
