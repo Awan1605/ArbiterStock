@@ -2,17 +2,25 @@
 
 use Illuminate\Support\Facades\Route;
 
-// Halaman Register
+// =======================
+// Halaman REGISTER
+// =======================
 Route::get('/register', function () {
     return view('auth.register');
 })->name('register');
 
-// Proses form Register (nanti bisa diisi controller)
 Route::post('/register', function () {
-    // proses penyimpanan data register (belum diisi)
+    // proses penyimpanan data register (nanti diganti dengan controller)
 })->name('register.store');
 
-// Halaman Login (sementara placeholder)
+
+// =======================
+// Halaman LOGIN
+// =======================
 Route::get('/login', function () {
-    return 'Halaman login (buat nanti)';
+    return view('auth.login'); // arahkan ke file resources/views/auth/login.blade.php
 })->name('login');
+
+Route::post('/login', function () {
+    // proses login (nanti diganti dengan controller)
+})->name('login.process');
