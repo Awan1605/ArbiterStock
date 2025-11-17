@@ -1,100 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Login | ArbiterStock</title>
-  <style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login Page</title>
+
+<style>
     body {
-      font-family: "Poppins", sans-serif;
-      background-color: #fff;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: #d7c9ff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
     }
 
     .container {
-      text-align: center;
+        background: #e8dfff;
+        width: 900px;
+        padding: 40px;
+        border-radius: 20px;
+        display: flex;
+        gap: 40px;
+        align-items: center;
+    }
+
+    .left {
+        width: 50%;
     }
 
     h1 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
+        font-size: 40px;
+        margin-bottom: 20px;
+        font-weight: bold;
     }
 
     label {
-      display: block;
-      text-align: left;
-      font-size: 0.9rem;
-      margin-bottom: 0.3rem;
+        font-size: 18px;
+        margin-top: 20px;
+        display: block;
     }
 
     input {
-      width: 250px;
-      padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      margin-bottom: 1rem;
-      font-size: 0.9rem;
+        width: 100%;
+        padding: 12px 15px;
+        border-radius: 10px;
+        border: none;
+        margin-top: 10px;
+        font-size: 16px;
     }
 
-    .small-text {
-      font-size: 0.8rem;
-      color: #444;
-      margin-bottom: 1.5rem;
+    .login-btn {
+        width: 100%;
+        padding: 15px;
+        margin-top: 30px;
+        border: none;
+        background: #2f2f2f;
+        color: white;
+        font-size: 20px;
+        border-radius: 10px;
+        cursor: pointer;
     }
 
-    .small-text a {
-      font-style: italic;
-      color: #000;
-      text-decoration: none;
+    .login-btn:hover {
+        background: black;
     }
 
-    .btn {
-      width: 270px;
-      padding: 12px;
-      background-color: #222;
-      color: white;
-      font-weight: bold;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: 0.2s ease;
+    .register-text {
+        margin-top: 10px;
+        font-size: 15px;
     }
 
-    .btn:hover {
-      background-color: #444;
+    .register-text span {
+        color: #0000ee;
+        cursor: pointer;
+        font-style: italic;
     }
 
-    .brand {
-      position: absolute;
-      top: 20px;
-      left: 40px;
-      font-size: 1.3rem;
-      font-weight: 500;
+    .right img {
+        width: 350px;
     }
-  </style>
+</style>
+
 </head>
 <body>
-  <div class="brand">ArbiterStock</div>
-  <div class="container">
-    <h1>LOGIN</h1>
 
-    <form>
-      <label for="username">username</label>
-      <input type="text" id="username" placeholder="input username" />
+<div class="container">
+    
+    <!-- LEFT SIDE -->
+    <div class="left">
+        <h1>LOGIN</h1>
 
-      <label for="password">password</label>
-      <input type="password" id="password" placeholder="input password" />
+        <label>username</label>
+        <input type="text" id="username" placeholder="input username">
 
-      <div class="small-text">
-         don’t have account? <a href="{{ route('register') }}">register</a>
-      </div>
+        <label>password</label>
+        <input type="password" id="password" placeholder="input password">
 
-      <button type="submit" class="btn">LOGIN</button>
-    </form>
-  </div>
+        <div class="register-text">
+            don't have account? <span onclick="register()">register</span>
+        </div>
+
+        <button class="login-btn" onclick="login()">LOGIN</button>
+    </div>
+
+    <!-- RIGHT SIDE IMAGE -->
+    <div class="right">
+        <img src="https://i.imgur.com/0U5GtgP.png" alt="illustration">
+    </div>
+
+</div>
+
+<script>
+    function login() {
+        let user = document.getElementById("username").value;
+        let pass = document.getElementById("password").value;
+
+        if (user === "" || pass === "") {
+            alert("Username dan password tidak boleh kosong!");
+        } else {
+            alert("Login berhasil!\nUsername: " + user);
+        }
+    }
+
+    function register() {
+        alert("Menu register belum tersedia.\nSilakan buat halaman register sendiri 🙂");
+    }
+</script>
+
 </body>
 </html>
