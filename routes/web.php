@@ -6,8 +6,8 @@ use Illuminate\Support\Facades\Route;
 // Halaman Dashboard (utama)
 // =======================
 Route::get('/', function () {
-    return view('dashboard');
-})->name('dashboard');
+    return view('lending_page');
+})->name('lending_page');
 
 // =======================
 // Halaman Modular (opsional, bisa diakses langsung)
